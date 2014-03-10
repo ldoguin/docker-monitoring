@@ -1,0 +1,200 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+
+<head>
+<title>Nuxeo Platform Installation wizard</title>
+<link rel="stylesheet" href="/nuxeo/css/nuxeo.css" type="text/css" media="screen" charset="utf-8" />
+<script src="/nuxeo/scripts/jquery-1.4.3.min.js"></script>
+<script>
+function navigateTo(page) {
+  window.location.href='/nuxeo/' + page;
+}
+function showError(id) {
+  alert(id);
+}
+
+
+
+function showIframeIfPossible() {
+  if (hasBrowserInternetAccess()) {
+    $("#connectBannerIframe").css("visibility","visible");
+  }
+}
+</script>
+</head>
+
+<body>
+
+<div id="topbar">
+<div class="container">
+ <a href="/nuxeo"><img src="/nuxeo/images/nuxeo.png" height="38px" border="0"/></a>
+</div>
+</div>
+<div style="text-align:center;">
+<div id="wizardFrame" class="container">
+
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top" align="left">
+    <td class="mainBlock">
+
+
+<table width="100%">
+<tr>
+<td class="leftCell">
+
+
+
+<div
+  class="navItem navItemSelected"
+>
+
+   <A href="#" onclick="navigateTo('Home')" class="checked"> Welcome </A>
+
+</div>
+
+
+
+<div
+  class="navItem "
+>
+
+  Proxy
+
+</div>
+
+
+
+<div
+  class="navItem "
+>
+
+  Email
+
+</div>
+
+
+
+<div
+  class="navItem "
+>
+
+  Nuxeo Connect
+
+</div>
+
+
+
+<div
+  class="navItem "
+>
+
+  Modules
+
+</div>
+
+
+
+<div
+  class="navItem "
+>
+
+  Download
+
+</div>
+
+
+
+<div
+  class="navItem "
+>
+
+  Summary
+
+</div>
+
+
+
+</td>
+<td class="mainCell">
+
+<!--
+
+<table width="100%" class="progressbar">
+<tr>
+<td colspan="2" style="font-style:italic;font-color:#555555;text-align:center">Configuration progress</td>
+</tr>
+<tr style="border-style:solid;border-width:1px;border-color:#CCCCCC">
+<td width="6%" style="background-color:#2888f8;padding:0px;margin:0px">&nbsp;</td>
+<td width="94%" style="background-color:#DDDDDD;padding:0px;margin:0px"></td>
+</tr>
+</table>
+
+ -->
+
+<script src="/nuxeo/scripts/browserInternetAccess.js"></script>
+<script src="http://www.nuxeo.com/var/storage/wizard/networkCheck.js?ts=1394457854396"></script>
+
+<h1>Welcome to the Nuxeo Platform</h1>
+<form id="wizardform" action="/nuxeo/Home" method="POST">
+<div class="formPadding">
+<p>This wizard will help you configure your Nuxeo application in a few quick steps so you can leverage all the features of the Nuxeo Platform.</p>
+<p>When these steps are completed, the Nuxeo server will restart automatically with your settings. You won't need to configure your application again.</p>
+<p><b>If you want to use the default test configuration, just leave the default parameters at each step. You can also change these settings later, in the Admin Center.</b></p>
+<p><a href="https://doc.nuxeo.com/x/lYFH" target="doc">More about the Admin Center</a></p>
+
+<input type="hidden" name="baseUrl" id="baseUrl" value=""/>
+<input type="hidden" name="browserInternetAccess" id="browserInternetAccess" value=""/>
+</div>
+<div class="buttonContainer">
+ <input type="submit" class="glossyButton" id="btnNext" disabled="true" value="Next step"/>
+</div>
+<script>
+  $(document).ready(function(){
+    $("#baseUrl").attr("value",window.location.href);
+    $("#browserInternetAccess").attr("value",hasBrowserInternetAccess());
+    $("#btnNext").attr("disabled",false);
+  });
+</script>
+</form>
+</td>
+<td class="rightCell">
+
+ <iframe id="connectBannerIframe" class="nuxeoIFrame" style="visibility:hidden" scrolling="no" frameborder="0"
+ onload="javascript:showIframeIfPossible();"
+ src="http://www.nuxeo.com/embedded/wizard/Home?pkg=cap-tomcat-5.8-ziporg.nuxeo.distribution.packaging=vm"></iframe>
+
+</td>
+</tr>
+</table>
+
+    </td>
+  </tr>
+  <tr valign="middle" align="center">
+    <td class="footer">
+      
+      
+      <span><a onclick="window.open(this.href); return false;" href="http://www.nuxeo.com">www.nuxeo.com</a></span> / <span><a onclick="window.open(this.href); return false;" href="http://www.nuxeo.com/blog/">Blogs</a></span> / <span><a onclick="window.open(this.href); return false;" href="http://doc.nuxeo.com">Documentation</a></span> / <span><a onclick="window.open(this.href); return false;" href="http://www.nuxeo.com/en/about/newsletter/">Newsletter</a></span> / <span><a onclick="window.open(this.href); return false;" href="http://answers.nuxeo.com/">answers.nuxeo.com</a></span>
+
+
+    </td>
+  </tr>
+</table>
+
+</div></div>
+</body>
+</html>
+

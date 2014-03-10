@@ -1,0 +1,23 @@
+<VirtualHost _default_:80>
+
+    CustomLog /var/log/apache2/nuxeo_access.log combined
+    ErrorLog /var/log/apache2/nuxeo_error.log
+
+    DocumentRoot /var/www
+
+    ProxyRequests Off
+    <Proxy *>
+        Order allow,deny
+        Allow from all
+    </Proxy>
+
+    RewriteEngine On
+    RewriteRule ^/$ /nuxeo/ [R,L]
+    RewriteRule ^/nuxeo$ /nuxeo/ [R,L]
+
+    ProxyPass        /nuxeo/ http://localhost:8080/nuxeo/
+    ProxyPassReverse /nuxeo/ http://localhost:8080/nuxeo/
+    ProxyPreserveHost On
+
+</VirtualHost>
+
