@@ -8,9 +8,8 @@ fi
 
 # PostgreSQL setup
 
-pgpass=$(pwgen -c1)
-
-echo $pgpass
+#pgpass=$(pwgen -c1)
+pgpass=nuxeo
 
 su postgres -c "psql -p 5432 template1 --quiet -t -f-" << EOF > /dev/null
 CREATE USER nuxeo WITH PASSWORD '$pgpass';

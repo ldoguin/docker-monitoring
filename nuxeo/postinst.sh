@@ -33,6 +33,14 @@ nuxeo.server.http.port=8080
 nuxeo.server.ajp.port=0
 nuxeo.wizard.done=false
 nuxeo.wizard.skippedpages=General,DB
+metrics.graphite.enabled=true
+metrics.graphite.host=docker
+metrics.graphite.port=2030
+metrics.graphite.period=10
+metrics.log4j.enabled=true
+metrics.log4j.period=10
+metrics.tomcat.enabled=true
+metrics.tomcat.period=10
 EOF
 
 
