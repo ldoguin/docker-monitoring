@@ -15,11 +15,17 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get install -y python-software-properties wget sudo net-tools
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-RUN add-apt-repository ppa:nils-nm/ppa-diamond
-
-
 RUN apt-get update
-RUN apt-get install -y vim diamond  python-psycopg2
-ADD diamond /etc/diamond/
+RUN apt-get install -y vim  pbuilder python-mock python-configobj python-support cdbs python-psycopg2 git
 
+#RUN git clone https://github.com/BrightcoveOS/Diamond/
+ADD Diamond /Diamond
+
+WORKDIR /Diamond
+RUN make builddeb
+RUN sudo dpkg -i build/diamond_*_all.deb
+ADD diamond /etc/diamond/
+ADD entrypoint.sh /
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD exec /usr/bin/diamond  -f
