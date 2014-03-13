@@ -18,8 +18,7 @@ RUN apt-get install -y python-software-properties wget sudo net-tools
 RUN apt-get update
 RUN apt-get install -y vim  pbuilder python-mock python-configobj python-support cdbs python-psycopg2 git
 
-#RUN git clone https://github.com/BrightcoveOS/Diamond/
-ADD Diamond /Diamond
+RUN git clone https://github.com/ldoguin/Diamond/
 
 WORKDIR /Diamond
 RUN make builddeb
