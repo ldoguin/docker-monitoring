@@ -23,6 +23,7 @@ EOF
 
 echo "$(cat /etc/issue)"
 touch /root/keygeneration_done
-
+chown -R nuxeo /var/log/nuxeo
+chown -R postgres /var/log/postgresql
 exec "$@"
 

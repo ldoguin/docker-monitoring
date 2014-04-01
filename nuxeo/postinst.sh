@@ -59,6 +59,9 @@ perl -p -i -e "s/^#?lc_messages\s*=.*$/lc_messages = 'en_US.UTF-8'/" $pgconf
 perl -p -i -e "s/^#?lc_time\s*=.*$/lc_time = 'en_US.UTF-8'/" $pgconf
 perl -p -i -e "s/^#?log_line_prefix\s*=.*$/log_line_prefix = '%t [%p]: [%l-1] '/" $pgconf
 perl -p -i -e "s/^#?listen_addresses\s*=.*$/listen_addresses = '*'/" $pgconf
+perl -p -i -e "s/^#?logging_collector\s*=.*$/logging_collector = on/" $pgconf
+perl -p -i -e "s/^#?log_directory\s*=.*$/log_directory = '\/var\/log\/postgresql'/" $pgconf
+
 
 mkdir -p /var/run/nuxeo
 chown $NUXEO_USER:$NUXEO_USER /var/run/nuxeo
