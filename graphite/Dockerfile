@@ -1,6 +1,9 @@
 FROM      ubuntu
 MAINTAINER Laurent Doguin "ldoguin@nuxeo.com"
 
+RUN apt-get update
+RUN apt-get install -y python-cairo libgcrypt11 python-virtualenv build-essential python-dev supervisor sudo
+
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y python-cairo libgcrypt11 python-virtualenv build-essential python-dev supervisor sudo
