@@ -33,11 +33,6 @@ RUN apt-get -y install fuse || true
 RUN rm -rf /var/lib/dpkg/info/fuse.postinst
 RUN apt-get -y install fuse
 
-RUN sudo apt-get clean
-RUN sudo apt-get autoclean
-RUN sudo dpkg --configure -a
-RUN sudo apt-get -u dist-upgrade
-
 # Install Nuxeo Dependencies
 RUN sudo apt-get install -y acpid openjdk-7-jdk libreoffice imagemagick poppler-utils ffmpeg ffmpeg2theora ufraw libwpd-tools perl locales pwgen dialog supervisor unzip vim
 
